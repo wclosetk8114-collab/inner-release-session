@@ -24,6 +24,7 @@
   --panel-line:rgba(201,168,96,.6);
   --veil:linear-gradient(180deg, rgba(246,247,251,.55) 0%, rgba(246,247,251,.25) 45%, rgba(246,247,251,.85) 100%);
   --btn-ink:#FFFDF6;
+  --halo-glow:rgba(255,255,255,.75);
   --display:"Zen Old Mincho","Noto Serif JP","Yu Mincho",serif;
   --body:"Zen Kaku Gothic New","Yu Gothic","Hiragino Sans",sans-serif;
   --num:"Cormorant Garamond","Zen Old Mincho",serif;
@@ -40,6 +41,7 @@
     --panel-line:rgba(214,182,112,.55);
     --veil:linear-gradient(180deg, rgba(16,18,26,.62) 0%, rgba(16,18,26,.45) 45%, rgba(16,18,26,.9) 100%);
     --btn-ink:#14161F;
+    --halo-glow:rgba(214,182,112,.10);
   }
 }
 :root[data-theme="dark"]{
@@ -52,6 +54,7 @@
   --panel-line:rgba(214,182,112,.55);
   --veil:linear-gradient(180deg, rgba(16,18,26,.62) 0%, rgba(16,18,26,.45) 45%, rgba(16,18,26,.9) 100%);
   --btn-ink:#14161F;
+    --halo-glow:rgba(214,182,112,.10);
 }
 *{box-sizing:border-box}
 body{margin:0; background:var(--ground); background-image:radial-gradient(120% 60% at 85% 40%, color-mix(in srgb,#F4D9C6 22%,transparent), transparent 60%), radial-gradient(90% 50% at 10% 75%, color-mix(in srgb,#D9D4F0 30%,transparent), transparent 60%); background-attachment:fixed; color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.9; -webkit-font-smoothing:antialiased}
@@ -150,13 +153,15 @@ section.blk h2{font-size:clamp(1.3rem,2.6vw,1.6rem); line-height:1.7}
 
 
 /* only here */
-.only{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:20px; margin-top:48px}
-.orb{position:relative; background:var(--surface); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1px solid var(--line-soft); padding:30px 24px 28px; display:flex; flex-direction:column; gap:10px; box-shadow:0 20px 50px -34px rgba(80,90,140,.4)}
-.seal{width:76px; height:76px; border-radius:50%; border:1px solid var(--gold); display:grid; place-items:center; position:relative; margin-bottom:10px;
-  font-family:var(--display); font-size:1.7rem; color:var(--gold); background:radial-gradient(circle, color-mix(in srgb,var(--gold) 14%,transparent), transparent 70%)}
-.seal::after{content:""; position:absolute; inset:-7px; border-radius:50%; border:1px solid var(--line)}
-.orb h3{font-size:1rem; line-height:1.7; text-wrap:wrap}
-.orb p{font-size:.86rem; color:var(--ink-2); line-height:1.95}
+.only-wrap{display:grid; justify-items:center; text-align:center; gap:0}
+.halo{position:relative; width:min(560px,100%); aspect-ratio:1; display:grid; place-items:center; margin-top:40px}
+.halo::before,.halo::after{content:""; position:absolute; border-radius:50%; pointer-events:none}
+.halo::before{inset:0; border:1px solid var(--line); background:radial-gradient(closest-side, var(--halo-glow), transparent 75%)}
+.halo::after{inset:7%; border:1px solid color-mix(in srgb,var(--gold) 55%,transparent); transform:rotate(-18deg) scaleX(.93)}
+.verse{position:relative; display:flex; flex-direction:row-reverse; gap:clamp(18px,3.6vw,30px); font-family:var(--display); font-size:clamp(.92rem,2.3vw,1.14rem); color:var(--ink); margin:0}
+.verse .v-col span{height:1.6em; line-height:1.6}
+.verse .v-col span.g{color:var(--gold)}
+.only-foot{font-size:.86rem; color:var(--ink-2); margin-top:36px; letter-spacing:.06em; line-height:2.1}
 .testi{margin:0; padding:80px 24px; text-align:center; position:relative; color:var(--cream); text-shadow:0 0 20px var(--ground), 0 0 6px var(--ground)}
 .testi .lead{font-family:var(--caps); font-size:.62rem; letter-spacing:.42em; color:var(--gold); margin-bottom:24px}
 .testi p.big{font-family:var(--display); font-size:clamp(1.1rem,2.6vw,1.45rem); line-height:2.2; letter-spacing:.08em}
@@ -253,16 +258,13 @@ footer.foot{padding-block:70px 80px; text-align:center; color:var(--ink-3); font
   </div>
 </div></section>
 
-<section class="blk" style="padding-top:0"><div class="wrap">
+<section class="blk" style="padding-top:0"><div class="wrap only-wrap">
   <p class="eyebrow">only here</p>
-  <h2>このヒーリングセッションにしかないこと</h2>
-  <p class="note">カウンセリングでも、コーチングでもありません。話して終わりにせず、体に残ったものまで扱います。</p>
-  <div class="only">
-    <div class="orb"><div class="seal">場</div><h3>感情の「場所」を見つける</h3><p>寂しさはみぞおち、怖さは下腹や肩。気持ちが体のどこに溜まっているかを、一緒に特定します。</p></div>
-    <div class="orb"><div class="seal">流</div><h3>その場で流す</h3><p>見つけたものは、リラックスしているあいだにヒーリングで流します。流す前と後の体の感じを、その場で確かめられます。</p></div>
-    <div class="orb"><div class="seal">言</div><h3>セッション中に届く言葉</h3><p>流している最中に、あなたに向けたメッセージが届くことがあります。届いた言葉は、そのままお伝えします。</p></div>
-    <div class="orb"><div class="seal">器</div><h3>あなたの器に合わせる</h3><p>受け取れる量は人によって違います。その日どこまでやるかは、体の反応を見ながら決めます。</p></div>
+  <h2>話して、終わりにしない。</h2>
+  <div class="halo">
+    <div class="verse" role="text" aria-label="感情の眠る場所を、見つける。　その場で、光に還す。　届いた言葉を、そのまま渡す。　受け取れる分だけ、ほどく。"><span class="v-col"><span>感</span><span>情</span><span>の</span><span>眠</span><span>る</span><span class="g">場</span><span class="g">所</span><span>を</span><span class="p">、</span><span>見</span><span>つ</span><span>け</span><span>る</span><span class="p">。</span></span><span class="v-col"><span>そ</span><span>の</span><span>場</span><span>で</span><span class="p">、</span><span class="g">光</span><span class="g">に</span><span class="g">還</span><span class="g">す</span><span class="p">。</span></span><span class="v-col"><span>届</span><span>い</span><span>た</span><span class="g">言</span><span class="g">葉</span><span>を</span><span class="p">、</span><span>そ</span><span>の</span><span>ま</span><span>ま</span><span>渡</span><span>す</span><span class="p">。</span></span><span class="v-col"><span class="g">受</span><span class="g">け</span><span class="g">取</span><span class="g">れ</span><span class="g">る</span><span class="g">分</span><span class="g">だ</span><span class="g">け</span><span class="p">、</span><span>ほ</span><span>ど</span><span>く</span><span class="p">。</span></span></div>
   </div>
+  <p class="only-foot">カウンセリングでも、コーチングでもない。<br>体に残ったものまで扱う、ヒーリングセッションです。</p>
 </div></section>
 
 <div class="panel">
