@@ -162,19 +162,31 @@ section.blk h2{font-size:clamp(1.3rem,2.6vw,1.6rem); line-height:1.7}
 .verse .v-col span{height:1.6em; line-height:1.6}
 .verse .v-col span.g{color:var(--gold)}
 .only-foot{font-size:.86rem; color:var(--ink-2); margin-top:36px; letter-spacing:.06em; line-height:2.1}
-.testi{margin:0; padding:80px 24px; text-align:center; position:relative; color:var(--cream); text-shadow:0 0 20px var(--ground), 0 0 6px var(--ground)}
-.testi .lead{font-family:var(--caps); font-size:.62rem; letter-spacing:.42em; color:var(--gold); margin-bottom:24px}
-.testi p.big{font-family:var(--display); font-size:clamp(1.1rem,2.6vw,1.45rem); line-height:2.2; letter-spacing:.08em}
-.testi p.src{font-size:.8rem; color:var(--cream-2); margin-top:22px; letter-spacing:.06em}
+.bali{position:relative; padding-block:110px 100px}
+.bali .ghost{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-family:var(--caps); font-weight:400; font-size:clamp(5rem,19vw,15rem); letter-spacing:.18em; color:transparent; -webkit-text-stroke:1px var(--panel-line); white-space:nowrap; pointer-events:none; opacity:.55; z-index:0}
+.bali-in{position:relative; z-index:1; display:grid; gap:48px; align-items:center}
+@media(min-width:820px){.bali-in{grid-template-columns:auto 1fr; gap:72px}}
+.bali .vq{display:flex; flex-direction:row-reverse; gap:22px; justify-content:center; font-family:var(--display); font-size:clamp(1.2rem,2.8vw,1.7rem); color:var(--cream); text-shadow:0 0 22px var(--ground),0 0 8px var(--ground)}
+.bali .vq .v-col span{height:1.55em; line-height:1.55}
+.bali .vq .v-col span.g{color:var(--gold)}
+.bali .story{display:flex; flex-direction:column; gap:18px; color:var(--cream); text-shadow:0 0 16px var(--ground)}
+.bali .story h2{font-size:clamp(1.25rem,2.6vw,1.55rem); line-height:1.8}
+.bali .story p{font-size:.92rem; color:var(--cream-2); line-height:2.1}
+.proofs{margin-top:14px; border-top:1px solid var(--panel-line)}
+.proof{display:grid; grid-template-columns:6.5em 1fr; gap:18px; padding:18px 2px; border-bottom:1px solid var(--panel-line); align-items:baseline}
+.proof i{font-family:var(--num); font-style:italic; font-size:1.35rem; color:var(--gold); line-height:1.2}
+.proof i small{display:block; font-family:var(--body); font-style:normal; font-size:.64rem; letter-spacing:.14em; color:var(--cream-2); margin-top:4px}
+.proof p{font-size:.88rem!important; color:var(--cream)!important; line-height:2!important}
+@media(max-width:640px){.bali{padding-block:80px 72px}.proof{grid-template-columns:1fr; gap:4px}}
 
 /* voice */
 .voice{position:relative; margin-top:44px; background:var(--surface); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1px solid var(--line); padding:44px 38px 38px; box-shadow:0 20px 50px -30px rgba(80,90,140,.35)}
 .voice::after{content:""; position:absolute; inset:6px; border:1px solid var(--line-soft); pointer-events:none}
-.voice-in{position:relative; display:flex; flex-direction:column; gap:26px}
+.voice-in{position:relative; display:flex; flex-direction:column; gap:20px}
 .voice .mark{font-family:var(--num); font-style:italic; font-size:4.2rem; line-height:.6; color:var(--gold); height:.5em}
 .voice .pull{font-family:var(--display); font-size:clamp(1.1rem,2.6vw,1.34rem); line-height:2; letter-spacing:.05em}
 .voice .pull em{font-style:normal; background:linear-gradient(transparent 62%, color-mix(in srgb,var(--gold) 22%,transparent) 62%)}
-.vstage{display:grid; grid-template-columns:7em 1fr; gap:6px 22px; padding-top:20px; border-top:1px solid var(--line-soft)}
+.vstage{margin:0; display:grid; grid-template-columns:7em 1fr; gap:6px 22px; padding-top:20px; border-top:1px solid var(--line-soft)}
 .vstage dt{font-family:var(--caps); font-size:.58rem; letter-spacing:.3em; color:var(--gold); padding-top:.5em}
 .vstage dd{margin:0; font-size:.92rem; color:var(--ink-2); line-height:2}
 .who-line{font-size:.8rem; color:var(--ink-3); letter-spacing:.14em; text-align:right}
@@ -283,12 +295,24 @@ footer.foot{padding-block:70px 80px; text-align:center; color:var(--ink-3); font
   <p class="only-foot">カウンセリングでも、コーチングでもない。<br>体に残ったものまで扱う、ヒーリングセッションです。</p>
 </div></section>
 
-<div class="panel">
+<div class="panel" id="bali">
   <div class="foil"></div>
-  <div class="testi">
-    <p class="lead">FROM BALI</p>
-    <p class="big">「その力は、ここでは<br>“シャーマン”と呼ばれるものです」</p>
-    <p class="src">浄化の寺院を訪ねたバリ島で、シャーマンの家に生まれた方から言われた言葉</p>
+  <div class="bali">
+    <div class="ghost" aria-hidden="true">TIRTA</div>
+    <div class="wrap bali-in">
+      <div class="vq" role="text" aria-label="「その力は、ここではシャーマンと呼ばれるものです」"><span class="v-col"><span>﹁</span><span>そ</span><span>の</span><span>力</span><span>は</span><span class="p">、</span><span>こ</span><span>こ</span><span>で</span><span>は</span></span><span class="v-col"><span class="g">シ</span><span class="g">ャ</span><span class="g">ー</span><span class="g">マ</span><span class="g">ン</span><span>と</span></span><span class="v-col"><span>呼</span><span>ば</span><span>れ</span><span>る</span><span>も</span><span>の</span><span>で</span><span>す</span><span>﹂</span></span></div>
+      <div class="story">
+        <p class="eyebrow" style="margin:0">origin ／ bali</p>
+        <h2>水の寺院で、<br>言われたこと。</h2>
+        <p>浄化のエネルギーを体で確かめるために訪れたバリ島。聖なる水がわき続ける寺院で、その水の神様の、やさしい力にふれました。</p>
+        <p>旅の最後の日。通訳についてくれたのは、シャーマンの家に生まれた方でした。セッションのことを話すと、「その力は、ここではシャーマンと呼ばれる。特別な人にしかできない癒しのレベルだ」と教えてくれました。</p>
+        <div class="proofs">
+          <div class="proof"><i>Tirta<small>聖なる水</small></i><p>バリの人たちが祈りと浄化に使う水。この寺院で、流すという感覚を体に刻みました。</p></div>
+          <div class="proof"><i>Balian<small>バリの癒し手</small></i><p>バリでは、心と体を癒す人を「バリアン」と呼び、村の人たちが頼りにしてきました。</p></div>
+          <div class="proof"><i>Echo<small>重なった答え</small></i><p>セッション中に届いた言葉を伝えると、「バリでシャーマンに同じ質問をしたとき、同じことを言われた」と驚かれたことがあります。</p></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
