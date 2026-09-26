@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>感情をほどくセッション</title>
+<meta name="description" content="体の感覚から過去の気持ちをたどり、溜まっていたものを流していく個人セッション。">
+<meta property="og:title" content="感情をほどくセッション">
+<meta property="og:description" content="過去の気持ちを、そっとほどいていく。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="bg.jpg">
+<meta name="theme-color" content="#F6F7FB">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Cinzel:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#F6F7FB; --surface:rgba(255,255,255,.72); --surface-2:#EEF0F7;
+  --ink:#1D2130; --ink-2:#555B6E; --ink-3:#8D92A3;
+  --cream:#1D2130; --cream-2:#4A5063; --panel-dim:rgba(29,33,48,.5);
+  --gold:#A07E36; --gold-lt:#C9A860;
+  --line:rgba(160,126,54,.28); --line-soft:rgba(120,128,160,.18);
+  --panel-line:rgba(201,168,96,.6);
+  --veil:linear-gradient(180deg, rgba(246,247,251,.55) 0%, rgba(246,247,251,.25) 45%, rgba(246,247,251,.85) 100%);
+  --btn-ink:#FFFDF6;
+  --display:"Zen Old Mincho","Noto Serif JP","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Yu Gothic","Hiragino Sans",sans-serif;
+  --num:"Cormorant Garamond","Zen Old Mincho",serif;
+  --caps:"Cinzel","Cormorant Garamond",serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#10121A; --surface:rgba(28,31,44,.72); --surface-2:#1A1D29;
+    --ink:#EEF0F6; --ink-2:#B3B8C8; --ink-3:#7E8497;
+    --cream:#F5F3EE; --cream-2:#D3D5DE; --panel-dim:rgba(245,243,238,.6);
+    --gold:#D6B670; --gold-lt:#E8CD8E;
+    --line:rgba(214,182,112,.3); --line-soft:rgba(180,188,220,.14);
+    --panel-line:rgba(214,182,112,.55);
+    --veil:linear-gradient(180deg, rgba(16,18,26,.62) 0%, rgba(16,18,26,.45) 45%, rgba(16,18,26,.9) 100%);
+    --btn-ink:#14161F;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#10121A; --surface:rgba(28,31,44,.72); --surface-2:#1A1D29;
+  --ink:#EEF0F6; --ink-2:#B3B8C8; --ink-3:#7E8497;
+  --cream:#F5F3EE; --cream-2:#D3D5DE; --panel-dim:rgba(245,243,238,.6);
+  --gold:#D6B670; --gold-lt:#E8CD8E;
+  --line:rgba(214,182,112,.3); --line-soft:rgba(180,188,220,.14);
+  --panel-line:rgba(214,182,112,.55);
+  --veil:linear-gradient(180deg, rgba(16,18,26,.62) 0%, rgba(16,18,26,.45) 45%, rgba(16,18,26,.9) 100%);
+  --btn-ink:#14161F;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--ground); background-image:radial-gradient(120% 60% at 85% 40%, color-mix(in srgb,#F4D9C6 22%,transparent), transparent 60%), radial-gradient(90% 50% at 10% 75%, color-mix(in srgb,#D9D4F0 30%,transparent), transparent 60%); background-attachment:fixed; color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.9; -webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display); font-weight:600; margin:0; text-wrap:balance; letter-spacing:.06em}
+p{margin:0}
+.wrap{max-width:1000px; margin:0 auto; padding-inline:28px}
+.narrow{max-width:760px}
+.eyebrow{font-family:var(--caps); font-size:.7rem; letter-spacing:.42em; text-transform:uppercase; color:var(--gold); margin:0 0 18px; font-weight:600}
+
+/* topbar */
+.topbar{position:sticky; top:env(safe-area-inset-top,0px); z-index:40; background:color-mix(in srgb,var(--ground) 90%,transparent); backdrop-filter:blur(12px); border-bottom:1px solid var(--line-soft)}
+.topbar-in{display:flex; align-items:center; gap:20px; height:64px; max-width:1120px; margin:0 auto; padding-inline:24px}
+.brand{display:flex; flex-direction:column; line-height:1.15; text-decoration:none; color:var(--ink)}
+.brand b{font-family:var(--display); font-weight:600; font-size:.98rem; letter-spacing:.2em}
+.brand small{font-family:var(--caps); font-size:.54rem; letter-spacing:.4em; color:var(--gold); margin-top:3px}
+.topnav{margin-left:auto; display:flex; gap:22px; align-items:center}
+.topnav a{font-size:.82rem; letter-spacing:.1em; color:var(--ink-2); text-decoration:none; padding:4px 0; border-bottom:1px solid transparent; transition:.2s}
+.topnav a:hover{color:var(--gold); border-bottom-color:var(--gold)}
+
+/* buttons */
+.btn{display:inline-block; padding:15px 34px; font-size:.82rem; letter-spacing:.2em; background:var(--gold); color:var(--btn-ink); border:1px solid var(--gold); border-radius:1px; transition:.25s; text-decoration:none}
+.btn:hover{background:transparent; color:var(--gold)}
+.btn.onDark{background:transparent; color:var(--gold); border-color:var(--panel-line)}
+.btn.onDark:hover{background:var(--gold); color:var(--btn-ink); border-color:var(--gold)}
+.btn:focus-visible,.topnav a:focus-visible{outline:1px solid var(--gold); outline-offset:3px}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:40px}
+
+/* panel */
+.panel{position:relative; color:var(--cream); overflow:hidden; background:var(--ground)}
+.panel::before{content:""; position:absolute; inset:0; background:url(bg.jpg) center 60%/cover no-repeat}
+.panel::after{content:""; position:absolute; inset:0; background:var(--veil)}
+.panel > *{position:relative; z-index:1}
+.foil{position:absolute; inset:0; pointer-events:none; z-index:1}
+.foil::before,.foil::after{content:""; position:absolute; border:1px solid var(--panel-line); border-radius:50%}
+.foil::before{width:min(900px,140vw); aspect-ratio:1; left:50%; top:-38%; transform:translateX(-50%)}
+.foil::after{width:min(620px,100vw); aspect-ratio:1; left:62%; top:-18%; transform:translateX(-50%); opacity:.7}
+.frame{position:absolute; z-index:1; inset:16px; border:1px solid var(--panel-line); pointer-events:none}
+.frame::before,.frame::after{content:""; position:absolute; width:9px; height:9px; border:1px solid var(--gold)}
+.frame::before{left:-5px; top:-5px; border-right:0; border-bottom:0}
+.frame::after{right:-5px; bottom:-5px; border-left:0; border-top:0}
+
+/* hero */
+.hero{padding-block:96px 88px}
+.hero-in{position:relative; display:grid; justify-items:center; text-align:center}
+.crest{width:1px; height:52px; background:linear-gradient(var(--panel-line),transparent); margin-bottom:22px}
+.kanji{font-family:var(--display); font-size:.9rem; letter-spacing:1em; color:var(--gold); text-indent:1em; margin:0 0 30px}
+.v-title{font-family:var(--display); color:var(--cream); text-shadow:0 0 24px var(--ground), 0 0 8px var(--ground); margin:0; font-weight:500; font-size:clamp(1.3rem,3.2vw,1.85rem);
+  display:flex; flex-direction:row-reverse; justify-content:center; gap:clamp(20px,3.4vw,34px)}
+.v-col{display:flex; flex-direction:column; align-items:center}
+.v-col span{display:block; height:1.62em; line-height:1.62}
+.v-col span.g{color:var(--gold)}
+.v-col span.p{transform:translate(.34em,-.3em)}
+.lede{color:var(--cream-2); text-shadow:0 0 18px var(--ground); font-size:.9rem; line-height:2.2; margin:34px auto 0; max-width:30em; letter-spacing:.04em}
+.hero .cta-row{justify-content:center}
+.sig{font-family:var(--caps); font-size:.6rem; letter-spacing:.5em; color:var(--panel-dim); margin-top:44px}
+
+/* sections */
+section.blk{padding-block:96px}
+section.blk h2{font-size:clamp(1.3rem,2.6vw,1.6rem); line-height:1.7}
+.note{color:var(--ink-2); font-size:.9rem; max-width:34em; margin-top:14px}
+.lede-grid{display:grid; gap:40px}
+@media(min-width:820px){.lede-grid{grid-template-columns:.8fr 1.2fr; gap:56px}}
+
+.rows{border-top:1px solid var(--line-soft)}
+.row{display:flex; gap:16px; padding:16px 4px; border-bottom:1px solid var(--line-soft); font-size:.94rem; line-height:1.8}
+.row::before{content:""; flex:none; width:9px; height:1px; background:var(--gold); margin-top:.9em}
+
+.steps{border-top:1px solid var(--line-soft)}
+.step{display:grid; grid-template-columns:auto 1fr; gap:26px; padding:24px 4px; border-bottom:1px solid var(--line-soft); align-items:start}
+.step .k{font-family:var(--num); font-style:italic; font-size:2rem; color:var(--gold); line-height:1; width:2.4ch}
+.step h3{font-size:1rem; margin-bottom:6px}
+.step p{font-size:.86rem; color:var(--ink-2); line-height:1.95}
+
+.quote{text-shadow:0 0 20px var(--ground), 0 0 6px var(--ground); margin:0; padding:72px 24px; text-align:center; font-family:var(--display); font-size:clamp(1.05rem,2.2vw,1.3rem); line-height:2.4; letter-spacing:.08em; color:var(--cream); position:relative}
+.quote small{display:block; font-family:var(--caps); font-size:.62rem; letter-spacing:.42em; color:var(--panel-dim); margin-top:24px}
+
+/* cases */
+.cases{display:grid; gap:36px; margin-top:44px}
+.sheet{background:var(--surface); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); box-shadow:0 20px 50px -30px rgba(80,90,140,.35); border:1px solid var(--line); padding:38px 34px 32px; position:relative}
+.sheet::after{content:""; position:absolute; inset:6px; border:1px solid var(--line-soft); pointer-events:none}
+.sheet-in{position:relative; display:flex; flex-direction:column; gap:6px}
+.qno{font-family:var(--num); font-style:italic; font-size:1.5rem; color:var(--gold); line-height:1}
+.qtag{font-family:var(--caps); font-size:.6rem; letter-spacing:.34em; color:var(--gold); margin-top:10px}
+.qtext{font-family:var(--display); font-size:clamp(1.05rem,2.6vw,1.26rem); line-height:1.9; letter-spacing:.04em}
+.qrule{height:1px; background:linear-gradient(90deg,var(--gold),var(--line-soft)); margin:18px 0 10px}
+.talk{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px}
+.talk li{display:grid; grid-template-columns:6em 1fr; gap:14px; font-size:.92rem; line-height:1.9}
+.talk .who{font-family:var(--body); font-size:.7rem; letter-spacing:.16em; color:var(--ink-3); padding-top:.3em}
+.talk .t .who{color:var(--gold)}
+.talk .c span:last-child{font-family:var(--display); letter-spacing:.03em}
+.aside{margin-top:18px; padding:18px 22px; background:var(--surface-2); border-left:1px solid var(--gold); font-size:.84rem; color:var(--ink-2); line-height:2}
+.after{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px 28px; margin-top:22px; padding-top:18px; border-top:1px solid var(--line-soft)}
+.after dt{font-family:var(--caps); font-size:.58rem; letter-spacing:.34em; color:var(--gold)}
+.after dd{margin:6px 0 0; font-family:var(--display); font-size:1rem; letter-spacing:.04em}
+.after div{margin:0}
+
+/* why */
+.mech-row{display:grid; grid-template-columns:auto 1fr; gap:26px; padding:24px 4px; border-bottom:1px solid var(--line-soft)}
+.mech-row .n{font-family:var(--num); font-style:italic; font-size:1.7rem; color:var(--gold); line-height:1.3; width:2ch}
+.mech-row h3{font-size:.98rem; margin-bottom:5px}
+.mech-row p{color:var(--ink-2); font-size:.86rem}
+
+/* price */
+.plans{border-top:1px solid var(--line)}
+.plan{display:grid; grid-template-columns:1fr auto; gap:6px 24px; align-items:baseline; padding:24px 4px; border-bottom:1px solid var(--line-soft)}
+.plan b{font-family:var(--display); font-weight:600; font-size:1.05rem; letter-spacing:.12em}
+.plan .rec{font-family:var(--caps); font-size:.56rem; letter-spacing:.3em; color:var(--gold); border:1px solid var(--line); padding:2px 10px; margin-left:12px; vertical-align:middle; white-space:nowrap}
+.plan .yen{font-family:var(--num); font-size:2rem; color:var(--gold); font-variant-numeric:tabular-nums; line-height:1; text-align:right}
+.plan .yen small{font-family:var(--body); font-size:.8rem; color:var(--ink-3); margin-left:4px}
+.plan p{grid-column:1/-1; font-size:.84rem; color:var(--ink-2)}
+.meta{display:flex; flex-wrap:wrap; gap:10px 32px; margin-top:24px; font-size:.84rem; color:var(--ink-2)}
+.meta span b{font-family:var(--caps); font-size:.58rem; letter-spacing:.3em; color:var(--gold); margin-right:10px; font-weight:600}
+
+.callout{border-left:1px solid var(--gold); background:var(--surface-2); padding:24px 28px; margin-top:28px}
+.callout p{font-family:var(--display); font-size:1.02rem; line-height:2.2; letter-spacing:.05em}
+.fine{list-style:none; margin:0; padding:0; font-size:.78rem; color:var(--ink-3); line-height:2}
+
+footer.foot{padding-block:70px 80px; text-align:center; color:var(--ink-3); font-size:.62rem; letter-spacing:.5em; font-family:var(--caps)}
+
+@media(max-width:640px){
+  .topbar-in{padding-inline:18px; height:56px}
+  .brand b{font-size:.88rem; letter-spacing:.1em}
+  .topnav{gap:14px}
+  .topnav a{font-size:.74rem}
+  .topnav a.hide-sm{display:none}
+  .wrap{padding-inline:20px}
+  section.blk{padding-block:64px}
+  .hero{padding-block:56px 52px}
+  .sheet{padding:28px 20px 24px}
+  .talk li{grid-template-columns:1fr; gap:0}
+  .plan .yen{font-size:1.6rem}
+}
+.fade{animation:fade .7s ease both}
+@keyframes fade{from{opacity:.001; transform:translateY(8px)}to{opacity:1; transform:none}}
+@media (prefers-reduced-motion: reduce){.fade{animation:none} *{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#top"><b>感情をほどくセッション</b><small>inner release</small></a>
+    <nav class="topnav">
+      <a class="hide-sm" href="#flow">流れ</a>
+      <a href="#case">セッション例</a>
+      <a href="#price">料金</a>
+    </nav>
+  </div>
+</div>
+
+<div class="panel hero fade" id="top">
+  <div class="foil"></div><div class="frame"></div>
+  <div class="wrap hero-in">
+    <div class="crest"></div>
+    <p class="kanji">解 放</p>
+    <h1 class="v-title" aria-label="過去の気持ちを、そっとほどいていく。">
+      <span class="v-col" aria-hidden="true"><span>過</span><span>去</span><span>の</span><span>気</span><span>持</span><span>ち</span><span>を</span><span class="p">、</span></span>
+      <span class="v-col" aria-hidden="true"><span class="g">そ</span><span class="g">っ</span><span class="g">と</span><span class="g">ほ</span><span class="g">ど</span><span class="g">い</span><span class="g">て</span><span class="g">い</span><span class="g">く</span><span class="g p">。</span></span>
+    </h1>
+    <p class="lede">何度も同じところでつまずくのは、過去の気持ちが体に残っているから。<br>
+    体の感覚をたどって、溜まっていた気持ちを見つけ、流していく個人セッションです。</p>
+    <div class="cta-row">
+      <a class="btn" href="#apply">申し込む</a>
+      <a class="btn onDark" href="#case">セッション例を見る</a>
+    </div>
+    <p class="sig">INNER RELEASE SESSION</p>
+  </div>
+</div>
+
+<section class="blk"><div class="wrap">
+  <div class="lede-grid">
+    <div>
+      <p class="eyebrow">for you</p>
+      <h2>こんなくり返し、<br>ありませんか</h2>
+      <p class="note">話しても、考え方を変えても、なぜか戻ってくる。そんな悩みのための時間です。</p>
+    </div>
+    <div class="rows">
+      <p class="row">仕事が形になったとたん「もう自分の役割はない」と感じて、離れてしまう</p>
+      <p class="row">頑張っているのに、お金や好意をうまく受け取れない</p>
+      <p class="row">理由のわからない不安や怖さが、ふとした時に出てくる</p>
+      <p class="row">人に頼るのが苦手で、我慢が当たり前になっている</p>
+      <p class="row">思い出すと、今でも胸がぎゅっとなる出来事がある</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="blk" id="flow" style="padding-top:0"><div class="wrap">
+  <div class="lede-grid">
+    <div>
+      <p class="eyebrow">flow</p>
+      <h2>セッションの流れ</h2>
+      <p class="note">まとまった言葉は要りません。感じていることを、そのまま話してもらえれば大丈夫です。</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="k">1</div><div><h3>気になっていることを話す</h3><p>くり返すパターンでも、過去の出来事でも。</p></div></div>
+      <div class="step"><div class="k">2</div><div><h3>その気持ちが体のどこにあるかを見る</h3><p>「このあたり」と手で示せるくらいで十分。ほとんどの方がすぐにわかります。</p></div></div>
+      <div class="step"><div class="k">3</div><div><h3>同じ感覚があった過去の場面へ</h3><p>頭で探すのではなく、体の感覚から「これはいつだったかな」とたどります。</p></div></div>
+      <div class="step"><div class="k">4</div><div><h3>本当はどうしてほしかったかを言葉にする</h3><p>当時の自分に戻って、言えなかった本音を話します。</p></div></div>
+      <div class="step"><div class="k">5</div><div><h3>溜まっていたものを流す</h3><p>楽な姿勢でリラックスしているあいだに、ヒーリングで流していきます。</p></div></div>
+      <div class="step"><div class="k">6</div><div><h3>体の感じを確かめる</h3><p>まだ残っていれば、もう一度。その日にやれる分までで区切ります。</p></div></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="panel">
+  <div class="foil"></div>
+  <blockquote class="quote">
+    気持ちを感じられるのは、それが体の中にあるから。<br>
+    だから、体の感覚からたどっていける。
+    <small>WHY THE BODY</small>
+  </blockquote>
+</div>
+
+<section class="blk" id="case"><div class="wrap narrow">
+  <p class="eyebrow">session example</p>
+  <h2>実際のセッションから</h2>
+  <p class="note">ご本人の了承を得た記録をもとに、個人が特定されないよう内容を変えています。</p>
+
+  <div class="cases">
+    <article class="sheet"><div class="sheet-in">
+      <div class="qno">01</div>
+      <p class="qtag">WORK PATTERN</p>
+      <p class="qtext">「仕組みを作り終えると、居場所がなくなる気がする」</p>
+      <div class="qrule"></div>
+      <ul class="talk">
+        <li class="t"><span class="who">セラピスト</span><span>その時、どんな気持ちになりますか？</span></li>
+        <li class="c"><span class="who">相談者</span><span>寂しい感じ。ぽっかり穴が開くような。</span></li>
+        <li class="t"><span class="who">セラピスト</span><span>それは体のどのあたりに？ その感覚が過去のいつにあったか、見てみてください。</span></li>
+        <li class="c"><span class="who">相談者</span><span>学校から帰っても、家に誰もいなかった時です。</span></li>
+        <li class="t"><span class="who">セラピスト</span><span>本当は、どうしてほしかった？</span></li>
+        <li class="c"><span class="who">相談者</span><span>「おかえり」って言って、今日あったことを聞いてほしかった。</span></li>
+      </ul>
+      <p class="aside">親もまた、家族を支えるために必死だったことを一緒に見ていき、伝えたかった「ありがとう」を言葉にしてから、みぞおちに溜まっていたものを流しました。</p>
+      <dl class="after">
+        <div><dt>FELT IN</dt><dd>みぞおち</dd></div>
+        <div><dt>AFTER</dt><dd>「さっきまでの感じが、ほとんどなくなった」</dd></div>
+      </dl>
+    </div></article>
+
+    <article class="sheet"><div class="sheet-in">
+      <div class="qno">02</div>
+      <p class="qtag">HIDDEN FEAR</p>
+      <p class="qtext">「怖いと感じないように、ずっと冷静でいようとしてきた」</p>
+      <div class="qrule"></div>
+      <ul class="talk">
+        <li class="t"><span class="who">セラピスト</span><span>一番心が動いた場面はどこですか？</span></li>
+        <li class="c"><span class="who">相談者</span><span>夜、大人たちの激しい言い争いが続いて、布団の中でじっと聞いていた時。</span></li>
+        <li class="t"><span class="who">セラピスト</span><span>その時の自分は、何を感じていた？</span></li>
+        <li class="c"><span class="who">相談者</span><span>このあとどうなるんだろう、という不安と怖さ。でも感じたら溺れそうで、「落ち着け」って自分を抑えていました。</span></li>
+      </ul>
+      <p class="aside">周りの大人の感情をそのまま浴びて、体にため込んでいた状態。量が多かったため、この日は負担にならない範囲で区切り、残りは次回に回しました。</p>
+      <dl class="after">
+        <div><dt>FELT IN</dt><dd>下腹と右肩</dd></div>
+        <div><dt>AFTER</dt><dd>「だいぶ楽になった。少し残っているくらい」</dd></div>
+      </dl>
+    </div></article>
+  </div>
+</div></section>
+
+<section class="blk" style="padding-top:0"><div class="wrap narrow">
+  <p class="eyebrow">why in steps</p>
+  <h2>回数を分けておすすめする理由</h2>
+  <div style="margin-top:34px; border-top:1px solid var(--line-soft)">
+    <div class="mech-row"><div class="n">1</div><div><h3>一度に全部は流さない</h3><p>長く溜まっていたものほど量があります。一気にやると反動が出やすいので、その日にやれる分で区切ります。</p></div></div>
+    <div class="mech-row"><div class="n">2</div><div><h3>間をあけると、次が出てくる</h3><p>一度きれいになると、その状態に体が慣れます。すると次の層が見つけやすくなります。</p></div></div>
+    <div class="mech-row"><div class="n">3</div><div><h3>目安は3回</h3><p>多くの方は3回ほどでかなり軽くなります。深く溜まっている方には5回をおすすめしています。</p></div></div>
+  </div>
+</div></section>
+
+<section class="blk" id="price" style="padding-top:0"><div class="wrap">
+  <div class="lede-grid">
+    <div>
+      <p class="eyebrow">price</p>
+      <h2>料金</h2>
+      <p class="note">変わりたいと思っている方に来ていただきたいので、この金額にしています。</p>
+    </div>
+    <div>
+      <div class="plans">
+        <div class="plan"><b>1回</b><span class="yen">100,000<small>円</small></span><p>まず一度、体験したい方へ。</p></div>
+        <div class="plan"><b>3回パック<span class="rec">RECOMMENDED</span></b><span class="yen">300,000<small>円</small></span><p>くり返すパターンを、段階を踏んでほどきたい方へ。</p></div>
+        <div class="plan"><b>5回パック</b><span class="yen">500,000<small>円</small></span><p>長く抱えてきたものが多い方へ。</p></div>
+      </div>
+      <div class="meta">
+        <span><b>TIME</b>1回 約60〜90分</span>
+        <span><b>STYLE</b>対面・オンライン</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="blk" style="padding-top:0"><div class="wrap narrow">
+  <p class="eyebrow">after the session</p>
+  <h2>セッションのあとに</h2>
+  <div class="callout"><p>当時言えなかった本音を、紙に書き出してください。<br>きれいな言葉じゃなくていい。疲れ切るまで書くと、さらに軽くなります。</p></div>
+  <p class="note" style="margin-top:24px">空いたスペースに、安心や受け取る力が入ってきます。寂しい時は、寂しいと言っていい。遠慮しなくていいことを、少しずつ思い出していきます。</p>
+  <ul class="fine" style="margin-top:48px">
+    <li>・本セッションは医療行為ではなく、診断・治療を目的とするものではありません。</li>
+    <li>・通院・治療中の方は、主治医にご相談のうえお申し込みください。</li>
+    <li>・感じ方や変化には個人差があります。</li>
+  </ul>
+</div></section>
+
+<div class="panel hero" id="apply">
+  <div class="foil"></div><div class="frame"></div>
+  <div class="wrap hero-in">
+    <div class="crest"></div>
+    <p class="eyebrow">apply</p>
+    <h2 style="font-size:clamp(1.2rem,2.8vw,1.6rem); line-height:2; color:var(--cream)">ずっと一人で抱えてきたものを、<br>ここで下ろしていきませんか。</h2>
+    <div class="cta-row"><a class="btn" href="#apply">申し込む</a></div>
+  </div>
+</div>
+
+<footer class="foot">INNER RELEASE SESSION</footer>
+
+</body>
+</html>
