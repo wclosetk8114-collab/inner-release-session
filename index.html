@@ -167,6 +167,19 @@ section.blk h2{font-size:clamp(1.3rem,2.6vw,1.6rem); line-height:1.7}
 .testi p.big{font-family:var(--display); font-size:clamp(1.1rem,2.6vw,1.45rem); line-height:2.2; letter-spacing:.08em}
 .testi p.src{font-size:.8rem; color:var(--cream-2); margin-top:22px; letter-spacing:.06em}
 
+/* voice */
+.voice{position:relative; margin-top:44px; background:var(--surface); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1px solid var(--line); padding:44px 38px 38px; box-shadow:0 20px 50px -30px rgba(80,90,140,.35)}
+.voice::after{content:""; position:absolute; inset:6px; border:1px solid var(--line-soft); pointer-events:none}
+.voice-in{position:relative; display:flex; flex-direction:column; gap:26px}
+.voice .mark{font-family:var(--num); font-style:italic; font-size:4.2rem; line-height:.6; color:var(--gold); height:.5em}
+.voice .pull{font-family:var(--display); font-size:clamp(1.1rem,2.6vw,1.34rem); line-height:2; letter-spacing:.05em}
+.voice .pull em{font-style:normal; background:linear-gradient(transparent 62%, color-mix(in srgb,var(--gold) 22%,transparent) 62%)}
+.vstage{display:grid; grid-template-columns:7em 1fr; gap:6px 22px; padding-top:20px; border-top:1px solid var(--line-soft)}
+.vstage dt{font-family:var(--caps); font-size:.58rem; letter-spacing:.3em; color:var(--gold); padding-top:.5em}
+.vstage dd{margin:0; font-size:.92rem; color:var(--ink-2); line-height:2}
+.who-line{font-size:.8rem; color:var(--ink-3); letter-spacing:.14em; text-align:right}
+@media(max-width:640px){.voice{padding:34px 20px 28px}.vstage{grid-template-columns:1fr}}
+
 /* why */
 .mech-row{display:grid; grid-template-columns:auto 1fr; gap:26px; padding:24px 4px; border-bottom:1px solid var(--line-soft)}
 .mech-row .n{font-family:var(--num); font-style:italic; font-size:1.7rem; color:var(--gold); line-height:1.3; width:2ch}
@@ -202,6 +215,8 @@ footer.foot{padding-block:70px 80px; text-align:center; color:var(--ink-3); font
   .sheet{padding:28px 20px 24px}
   .talk li{grid-template-columns:1fr; gap:0}
   .plan .yen{font-size:1.6rem}
+  .halo{aspect-ratio:auto; padding-block:56px}
+  .halo::after{inset:4% 2%}
 }
 .fade{animation:fade .7s ease both}
 @keyframes fade{from{opacity:.001; transform:translateY(8px)}to{opacity:1; transform:none}}
@@ -216,6 +231,7 @@ footer.foot{padding-block:70px 80px; text-align:center; color:var(--ink-3); font
     <nav class="topnav">
       <a class="hide-sm" href="#flow">流れ</a>
       <a href="#case">セッション例</a>
+      <a class="hide-sm" href="#voice">お客様の声</a>
       <a href="#price">料金</a>
     </nav>
   </div>
@@ -347,6 +363,25 @@ footer.foot{padding-block:70px 80px; text-align:center; color:var(--ink-3); font
       </dl>
     </div></article>
   </div>
+</div></section>
+
+<section class="blk" id="voice" style="padding-top:0"><div class="wrap narrow">
+  <p class="eyebrow">voice</p>
+  <h2>受けた方の声</h2>
+  <article class="voice"><div class="voice-in">
+    <div class="mark" aria-hidden="true">“</div>
+    <p class="pull">身体がとても楽になった。<br>そして、<em>自分が自分らしく存在していい</em>と、許可を出せるようになりました。</p>
+    <dl class="vstage">
+      <dt>BEFORE</dt><dd>最近出てきた怒りの感情が、過去の体験によって身体に刻み込まれていたり、蓄積されている感じがしていました。</dd>
+    </dl>
+    <dl class="vstage">
+      <dt>SESSION</dt><dd>実際にセッションを受けて、身体がとても楽になりました。過去にどうしてほしかったのかを聞いてもらい、誰かに本心をシェアして、フラットに理解や共感をしてもらうことの大切さもわかりました。誰かに話して共感されることで手放せるものもあるので、自分1人だと辛い方には、とてもおすすめです。</dd>
+    </dl>
+    <dl class="vstage">
+      <dt>AFTER</dt><dd>日常で怒りが出にくくなりました。そして、より自分が自分らしく存在していいんだと、許可が下せるようになりました。</dd>
+    </dl>
+    <p class="who-line">30代女性　個人事業主</p>
+  </div></article>
 </div></section>
 
 <section class="blk" style="padding-top:0"><div class="wrap narrow">
